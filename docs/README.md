@@ -8,8 +8,14 @@ search: english
 
 ## Special Sponsors
 
-<a href="https://pear.hk/" target="_blank">
-    <img width="222px" src="https://i.imgur.com/5qQYmfc.png">
+<a href="http://www.polyv.net/" target="_blank">
+    <img width="600px" src="https://i.imgur.com/d4XabAe.png">
+</a>
+
+## Sponsors
+
+<a href="https://www.dogecloud.com/?ref=dplayer" target="_blank">
+    <img width="222px" src="https://i.imgur.com/BBKXPAp.png">
 </a>
 <a href="https://console.upyun.com/register/?invite=BkLZ2Xqob" target="_blank">
     <img width="222px" src="https://imgur.com/apG1uKf.png">
@@ -55,7 +61,7 @@ const dp = new DPlayer({
     },
     danmaku: {
         id: 'demo',
-        api: 'https://api.prprpr.me/dplayer3/'
+        api: 'https://api.prprpr.me/dplayer/'
     }
 });
 ```
@@ -109,6 +115,7 @@ danmaku.user | 'DIYgod' | danmaku user name
 danmaku.bottom | - | values like: '10px' '10%', the distance between the danmaku bottom and player bottom, in order to prevent warding off subtitle
 danmaku.unlimited | false | display all danmaku even though danmaku overlap, notice that player will remember user setting, default setting will not work after user set it themselves
 contextmenu | [] | custom contextmenu
+highlight | [] | custom time markers upon progress bar
 mutex | true | prevent to play multiple player at the same time, pause other players when this player start play
 
 For example:
@@ -145,10 +152,10 @@ const dp = new DPlayer({
     },
     danmaku: {
         id: '9E2E3368B56CDBB4',
-        api: 'https://api.prprpr.me/dplayer3/',
+        api: 'https://api.prprpr.me/dplayer/',
         token: 'tokendemo',
         maximum: 1000,
-        addition: ['https://api.prprpr.me/dplayer3/bilibili?aid=4157142'],
+        addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid=4157142'],
         user: 'DIYgod',
         bottom: '15%',
         unlimited: true
@@ -163,6 +170,16 @@ const dp = new DPlayer({
             click: (player) => {
                 console.log(player);
             }
+        }
+    ],
+    highlight: [
+        {
+            text: 'marker for 20s',
+            time: 20
+        },
+        {
+            text: 'marker for 2mins',
+            time: 120
         }
     ]
 });
@@ -193,7 +210,7 @@ const dp = new DPlayer({
       thumbnails: 'second.jpg'
   }, {
       id: 'test',
-      api: 'https://api.prprpr.me/dplayer3/',
+      api: 'https://api.prprpr.me/dplayer/',
       maximum: 3000,
       user: 'DIYgod'
   });
@@ -334,6 +351,8 @@ Player events
 - resize
 - fullscreen
 - fullscreen_cancel
+- webfullscreen
+- webfullscreen_cancel
 - subtitle_show
 - subtitle_hide
 - subtitle_change
@@ -374,7 +393,7 @@ const dp = new DPlayer({
 
 **Ready-made API**
 
-url: https://api.prprpr.me/dplayer3/
+url: https://api.prprpr.me/dplayer/
 
 Daily backup data: [DPlayer-data](https://github.com/DIYgod/DPlayer-data)
 
@@ -386,13 +405,13 @@ Daily backup data: [DPlayer-data](https://github.com/DIYgod/DPlayer-data)
 
 `danmaku.addition`
 
-API: [https://api.prprpr.me/dplayer3/v2/bilibili?aid=[aid]](https://api.prprpr.me/dplayer3/v2/bilibili?aid=[aid]) or [https://api.prprpr.me/dplayer3/v2/bilibili?cid=[cid]](https://api.prprpr.me/dplayer3/v2/bilibili?cid=[cid])
+API: <https://api.prprpr.me/dplayer/v3/bilibili?aid=[aid]>
 
 ```js
 const option = {
     danmaku: {
         // ...
-        addition: ['https://api.prprpr.me/dplayer3/v2/bilibili?aid=[aid]']
+        addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid=[aid]']
     }
 }
 ```

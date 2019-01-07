@@ -9,8 +9,8 @@ search: zh-Hans
 
 ## 特别赞助商
 
-<a href="https://pear.hk/" target="_blank">
-    <img width="222px" src="https://i.imgur.com/5qQYmfc.png">
+<a href="https://www.dogecloud.com/?ref=dplayer" target="_blank">
+    <img width="222px" src="https://i.imgur.com/BBKXPAp.png">
 </a>
 <a href="https://console.upyun.com/register/?invite=BkLZ2Xqob" target="_blank">
     <img width="222px" src="https://imgur.com/apG1uKf.png">
@@ -56,7 +56,7 @@ const dp = new DPlayer({
     },
     danmaku: {
         id: 'demo',
-        api: 'https://api.prprpr.me/dplayer3/'
+        api: 'https://api.prprpr.me/dplayer/'
     }
 });
 ```
@@ -110,6 +110,7 @@ danmaku.user | 'DIYgod' | 弹幕用户名
 danmaku.bottom | - | 弹幕距离播放器底部的距离，防止遮挡字幕，取值形如: '10px' '10%'
 danmaku.unlimited | false | 海量弹幕模式，即使重叠也展示全部弹幕，请注意播放器会记忆用户设置，用户手动设置后即失效
 contextmenu | [] | 自定义右键菜单
+highlight | [] | 自定义进度条提示点
 mutex | true | 互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
 
 例如:
@@ -146,10 +147,10 @@ const dp = new DPlayer({
     },
     danmaku: {
         id: '9E2E3368B56CDBB4',
-        api: 'https://api.prprpr.me/dplayer3/',
+        api: 'https://api.prprpr.me/dplayer/',
         token: 'tokendemo',
         maximum: 1000,
-        addition: ['https://api.prprpr.me/dplayer3/bilibili?aid=4157142'],
+        addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid=4157142'],
         user: 'DIYgod',
         bottom: '15%',
         unlimited: true
@@ -164,6 +165,16 @@ const dp = new DPlayer({
             click: (player) => {
                 console.log(player);
             }
+        }
+    ],
+    highlight: [
+        {
+            time: 20,
+            text: '这是第 20 秒'
+        },
+        {
+            time: 120,
+            text: '这是 2 分钟'
         }
     ]
 });
@@ -194,7 +205,7 @@ const dp = new DPlayer({
       thumbnails: 'second.jpg'
   }, {
       id: 'test',
-      api: 'https://api.prprpr.me/dplayer3/',
+      api: 'https://api.prprpr.me/dplayer/',
       maximum: 3000,
       user: 'DIYgod'
   });
@@ -371,7 +382,7 @@ const dp = new DPlayer({
 
 **现成的接口**
 
-链接: https://api.prprpr.me/dplayer3/
+链接: https://api.prprpr.me/dplayer/
 
 每日备份: [DPlayer-data](https://github.com/DIYgod/DPlayer-data)
 
@@ -383,13 +394,13 @@ const dp = new DPlayer({
 
 `danmaku.addition`
 
-API: [https://api.prprpr.me/dplayer3/v2/bilibili?aid=[aid]](https://api.prprpr.me/dplayer3/v2/bilibili?aid=[aid]) or [https://api.prprpr.me/dplayer3/v2/bilibili?cid=[cid]](https://api.prprpr.me/dplayer3/v2/bilibili?cid=[cid])
+API: <https://api.prprpr.me/dplayer/v3/bilibili?aid=[aid]>
 
 ```js
 const option = {
     danmaku: {
         // ...
-        addition: ['https://api.prprpr.me/dplayer3/v2/bilibili?aid=[aid]']
+        addition: ['https://api.prprpr.me/dplayer/v3/bilibili?aid=[aid]']
     }
 }
 ```
